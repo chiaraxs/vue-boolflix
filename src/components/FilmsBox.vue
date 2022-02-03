@@ -1,22 +1,25 @@
 <template>
   
   <!-- 7. qui stampo i dati dei film  -->
-    <div class="film-box text-center border border-dark my-2 mx-1 py-4 px-4"> 
+    <div class="film-box  border border-dark my-3 mx-4"> 
       
-        <div class="img" id="show">
+        <div class="film-details">
             <!-- se il link dell'img ha valore === null -> stampa questa img -->
-            <img class="not-found px-3 py-5" v-if="movie.poster_path === null" src="https://bitsofco.de/content/images/2018/12/broken-1.png" alt="">
+            <img class="not-found py-5" id="show" v-if="movie.poster_path === null" src="https://www.freeiconspng.com/thumbs/no-image-icon/no-image-icon-15.png" alt="">
                 
             <!-- altrimenti, se l'immagine è inclusa nel movie.poster_path -> stampala -->
-            <img v-else :src="'https://image.tmdb.org/t/p/original/' + movie.poster_path">  
-        </div>
+            <img id="show" v-else :src="'https://image.tmdb.org/t/p/original/' + movie.poster_path">  
         
-        <div class="film-details" id="hidden">
-            <h5 class="mt-2">{{movie.title}}</h5>
-            <h6>Language: {{movie.original_language}}</h6>
-            <h6>{{movie.vote_avarage}}</h6>
-        </div>
         
+        
+            <div class="text-light py-4 px-3" id="hidden">
+                <span class="fw-bold">Titolo:</span> {{movie.title}}
+                <br>
+                <span class="fw-bold">Titolo originale:</span> {{movie.original_title}}
+                <br>
+                <span class="fw-bold">Overview:</span> {{movie.overview}}
+            </div>
+        </div>
         
         
     </div>
@@ -37,23 +40,42 @@ export default {
 
 <style lang="scss" scoped>
 .film-box{
-    width: (100% / 6);
-    background-color: gray;
+    width: (100% / 7);
+    background-color: black;
+    
         
         
     img{
         width: 100%;
+        height: 100%;
     }
 
     #hidden{
         display: none;
+       
     }
 
-    #show:hover + #hidden{
-        display:block;
+    .film-details{
+        cursor: pointer;
+        height: 500px;
 
+        
     }
 
+    &:hover .film-details{
+        
+        #show{
+            display: none;
+            
+            
+        }
+
+        #hidden{
+            display: block;
+            line-height: 15px;
+        }
+        
+    }
 }
 
 
