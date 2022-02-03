@@ -21,6 +21,9 @@ export default {
   components: { 
         SearchBar
     },
+    data(){
+
+    }
     
 }
 </script>

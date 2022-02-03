@@ -1,6 +1,13 @@
 <template>
   
-    <div class="film-box text-center"> QUI ANDRANNO STAMPATI I FILMS FILTRATI</div>
+  <!-- 7. qui stampo i dati dei film  -->
+    <div class="film-box text-center"> 
+        <img :src="'https://image.tmdb.org/t/p/original/' + movie.poster_path">  
+        <h3>{{movie.title}}</h3>
+        <h4>{{movie.original_title}}</h4>
+        <div>{{movie.original_language}}</div>
+        <div>{{movie.vote_avarage}}</div>
+    </div>
     
 </template>
 
@@ -8,7 +15,9 @@
 
 
 export default {
-
+    props: {
+        movie: Object,   // qui movie rimanda un object
+    }
     
 }
 </script>

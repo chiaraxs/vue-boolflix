@@ -1,8 +1,9 @@
 <template>
   <div id="app">
     
-    <header-box />
-    <main-content />
+    <!-- 3. passo ad header-box la funzione 'searchMovie' che scatena l'evento e al click sul button fa la chiamata api -->
+    <header-box @search="searchMovie"/>       
+    <main-content :movies="movies" />
 
   </div>
 </template>
@@ -22,16 +23,18 @@ export default {
   },
   data(){
     return {
-      movies: [],    // creo array vuoto che verrà popolato con i dati ricevuti dalla chiamata api
+      movies: [],    // 4. creo array vuoto che verrà popolato con i dati ricevuti dalla chiamata api
     }
 
   },
-  mounted(){
-    axios.get('https://api.themoviedb.org/3/search/movie?api_key=e99307154c6dfb0b4750f6603256716d&query=ritorno+al+futuro').then((response) => {
-    this.movies = response.data.results;    // chiamata api 
-    console.log (response.data.results);     // console debug
-    });
-  } 
+  methods: {
+    // 5. creo la funzione che verrà chiamata da Header-Box
+    searchMovie(keyword){
+      return axios.get(`https://api.themoviedb.org/3/search/movie/?api_key=9e033ce0eba533dff44afb04aca4ab7b&query=${keyword}`).then((response) => {
+      this.movies = response.data.results;    // api call -> salva nell'array vuoto movies i dati ricevuti in risposta da axios
+      });
+    }
+  }  
 }
 </script>
 
