@@ -12,16 +12,18 @@ import HeaderBox from './components/HeaderBox.vue'
 import MainContent from './components/MainContent.vue'
 
 
+
 export default {
   name: 'App',
   components: {
     HeaderBox,
-    MainContent
+    MainContent,
     
   }
 }
 </script>
 
 <style lang="scss">
+@import './style/common.scss';
 
 </style>

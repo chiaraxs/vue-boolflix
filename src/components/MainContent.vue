@@ -1,11 +1,18 @@
 <template>
-    <div></div>
+    
+    <films-box />
+
 </template>
 
 <script>
-export default {
-    
+import FilmsBox from "./FilmsBox.vue"
+
+export default{
+    components: {
+        FilmsBox,
+    }
 }
+ 
 </script>
 
 
