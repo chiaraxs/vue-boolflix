@@ -15,7 +15,7 @@
         il nome dell'avento (search) che passa al padre e il valore passato dall'input tramite v-model 'keywordSearch'-->
 
         <input v-model="keywordSearch" type="text" class="form-control me-3" placeholder="Search your film" aria-label="Search">
-        <button @click="$emit('search', keywordSearch)" type="button" class="btn btn-light">Search</button>
+        <button @click="$emit('searchMovie', 'searchSerie', keywordSearch)" type="button" class="btn btn-light">Search</button>
 
     </div>
     </header>
@@ -30,7 +30,7 @@ export default {
     data() {
         return{
             keywordSearch: '',      // 2. salvo il valore dell'input in una variabile vuota -> sarà dinamica in base al testo digitato nell'input
-                                    //  e conseguente ricerca effettuata dall'utente
+                                    //  e conseguente alla ricerca effettuata dall'utente
         }
     }
 }

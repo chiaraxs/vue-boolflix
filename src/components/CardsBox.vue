@@ -6,19 +6,19 @@
         <div class="film-details">
             
             <!-- se il link dell'img ha valore === null -> stampa questa img -->
-            <img class="not-found" id="show" v-if="movie.poster_path === null " src="https://via.placeholder.com/1700/000000/FF0000/?text=Poster+not+available" alt="poster Not Avaible">
+            <img class="not-found" id="show" v-if="info.poster_path === null " src="https://via.placeholder.com/1700/000000/FF0000/?text=Poster+not+available" alt="poster Not Avaible">
                 
             <!-- altrimenti, se l'immagine è inclusa nel movie.poster_path -> stampala -->
-            <img id="show" v-else :src="'https://image.tmdb.org/t/p/original/' + movie.poster_path">  
+            <img id="show" v-else :src="'https://image.tmdb.org/t/p/original/' + info.poster_path">  
         
         
         
             <div class="text-light py-4 px-3" id="hidden">
-                <span class="fw-bold">Titolo:</span> {{movie.title}}
+                <span class="fw-bold">Titolo:</span> {{info.title}}
                 <br>
-                <span class="fw-bold">Titolo originale:</span> {{movie.original_title}}
+                <span class="fw-bold">Titolo originale:</span> {{info.original_title}}
                 <br>
-                <span class="fw-bold">Overview:</span> {{movie.overview}}
+                <span class="fw-bold">Overview:</span> {{info.overview}}
             </div>
         </div>
         
@@ -32,7 +32,7 @@
 
 export default {
     props: {
-        movie: Object,   // importiamo i dati dal padre (Maincontent - riga 8 :movie="movie) 
+        info: Object,   // importiamo i dati dal padre (Maincontent - riga 8 :movie="movie) 
                         // -> 'movie' in film.box rimanda un object ( ossia i singoli films compresi nell'array di oggetti filtrati, 
                         // inclusi title, original_title, overview e altri dettagli )
     }

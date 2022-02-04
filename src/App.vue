@@ -5,8 +5,8 @@
     <!-- 5.1 nel catturare l'avento, il padre richiama la funzione 'searchMovies' che scatena l'evento e al click sul button fa la chiamata api  -->
     <!-- 5.2 App.vue (padre) dichiara i dati 'movies' che rimanderà sotto forma di props a MainContent (figlio) -->
 
-    <header-box @search="searchMovies" />       
-    <main-content :movies="movies" />    
+    <header-box @searchMovie="searchMovies" @searchSerie="searchSeries" />       
+    <main-content :movies="movies" :serie="series" />    
 
   </div>
 </template>
@@ -27,6 +27,7 @@ export default {
   data(){
     return {
       movies: [],    // 3. creo array vuoto che verrà popolato con i dati ricevuti dalla chiamata api
+      series: [],
       api_key: '9e033ce0eba533dff44afb04aca4ab7b',     // 3.1 dichiaro/conservo la mia api_key in una variabile
     }
 
@@ -43,6 +44,16 @@ export default {
 
       return axios.get(`https://api.themoviedb.org/3/search/movie`, { params }).then((response) => {
         this.movies = response.data.results;    // api call -> salva nell'array vuoto 'movies' i dati ricevuti in risposta da axios
+      });
+    },
+    searchSeries(query){
+      const params = {
+        query: query,      
+        api_key: this.api_key,
+      }
+
+      return axios.get(`https://api.themoviedb.org/3/search/tv`, { params }).then((response) => {
+        this.series = response.data.results;    // api call -> salva nell'array vuoto 'movies' i dati ricevuti in risposta da axios
       });
     },
   }  
