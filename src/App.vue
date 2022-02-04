@@ -6,7 +6,7 @@
     <!-- 5.2 App.vue (padre) dichiara i dati 'movies' che rimanderà sotto forma di props a MainContent (figlio) -->
 
     <header-box @searching="doSearch" />       
-    <main-content :movies="movies" :serie="series" />    
+    <main-content :movies="movies" :series="series" />    
 
   </div>
 </template>

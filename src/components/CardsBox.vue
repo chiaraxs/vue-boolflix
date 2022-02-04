@@ -14,11 +14,28 @@
         
         
             <div class="text-light py-4 px-3" id="hidden">
-                <span class="fw-bold">Titolo:</span> {{info.title}}
+
+                <div class="movies" v-if="type === 'title'">
+                    Titolo: {{info.title}}
                 <br>
                 <span class="fw-bold">Titolo originale:</span> {{info.original_title}}
                 <br>
                 <span class="fw-bold">Overview:</span> {{info.overview}}
+                </div>
+
+
+                <div class="series" v-else>
+                    Titolo:{{info.name}}
+                    Titolo Originale: {{info.original_name}}
+                    Overview: {{info.overview}}
+                </div>
+
+    
+
+                
+            
+
+
             </div>
         </div>
         
@@ -35,6 +52,8 @@ export default {
         info: Object,   // importiamo i dati dal padre (Maincontent - riga 8 :movie="movie) 
                         // -> 'movie' in film.box rimanda un object ( ossia i singoli films compresi nell'array di oggetti filtrati, 
                         // inclusi title, original_title, overview e altri dettagli )
+    type: String
+    
     }
     
 }
