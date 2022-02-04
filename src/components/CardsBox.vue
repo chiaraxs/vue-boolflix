@@ -15,20 +15,17 @@
         
             <div class="text-light py-4 px-3" id="hidden">
 
-                <div class="movies" v-if="type === 'title'">
-                    Titolo: {{info.title}}
+            <div class="movies">
+                Titolo: 
+                <span class="fw-bold" v-if="type === 'movie'">{{info.title}}</span>
+                <span class="fw-bold" v-else>{{info.name}}</span>
                 <br>
-                <span class="fw-bold">Titolo originale:</span> {{info.original_title}}
+                Titolo originale:
+                <span class="fw-bold" v-if="type === 'movie'">{{info.original_title}}</span>
+                <span class="fw-bold" v-else>{{info.original_name}}</span>
                 <br>
                 <span class="fw-bold">Overview:</span> {{info.overview}}
-                </div>
-
-
-                <div class="series" v-else>
-                    Titolo:{{info.name}}
-                    Titolo Originale: {{info.original_name}}
-                    Overview: {{info.overview}}
-                </div>
+            </div>
 
     
 
