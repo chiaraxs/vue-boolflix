@@ -6,7 +6,7 @@
         <div class="film-details">
             
             <!-- se il link dell'img ha valore === null -> stampa questa img -->
-            <img class="not-found" id="show" v-if="movie.poster_path === null " src="https://unsplash.it/200/300?image=876" alt="">
+            <img class="not-found" id="show" v-if="movie.poster_path === null " src="https://via.placeholder.com/1700/000000/FF0000/?text=Poster+not+available" alt="poster Not Avaible">
                 
             <!-- altrimenti, se l'immagine è inclusa nel movie.poster_path -> stampala -->
             <img id="show" v-else :src="'https://image.tmdb.org/t/p/original/' + movie.poster_path">  
