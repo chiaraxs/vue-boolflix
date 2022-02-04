@@ -4,8 +4,9 @@
     <div class="film-box  border border-dark my-3 mx-4"> 
       
         <div class="film-details">
+            
             <!-- se il link dell'img ha valore === null -> stampa questa img -->
-            <img class="not-found py-5" id="show" v-if="movie.poster_path === null" src="https://www.freeiconspng.com/thumbs/no-image-icon/no-image-icon-15.png" alt="">
+            <img class="not-found" id="show" v-if="movie.poster_path === null " src="https://unsplash.it/200/300?image=876" alt="">
                 
             <!-- altrimenti, se l'immagine è inclusa nel movie.poster_path -> stampala -->
             <img id="show" v-else :src="'https://image.tmdb.org/t/p/original/' + movie.poster_path">  
@@ -31,7 +32,9 @@
 
 export default {
     props: {
-        movie: Object,   // qui movie rimanda un object
+        movie: Object,   // importiamo i dati dal padre (Maincontent - riga 8 :movie="movie) 
+                        // -> 'movie' in film.box rimanda un object ( ossia i singoli films compresi nell'array di oggetti filtrati, 
+                        // inclusi title, original_title, overview e altri dettagli )
     }
     
 }

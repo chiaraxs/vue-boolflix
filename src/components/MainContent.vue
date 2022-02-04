@@ -1,9 +1,12 @@
 <template>
     
 
-    <!-- 6. con il v-for stampo tutti i film con key obbligatoria 'index' -->
+    <!-- 6. con il v-for stampo tutti i film filtrati selezionandoli con :key=id 
+    (l'id identificativo è nell'array che axios rimanda in risposta dopo la chiamata api) -->
+    <!-- 6.1 MainContent (padre) dichiara il dato 'movie' che rimanderà sotto forma di props a FilmBox (figlio) -->
+
     <div class="main-content d-flex justify-content-center flex-wrap">
-        <films-box v-for="(movie, index) in movies" :key="index" :movie="movie"  />
+        <films-box v-for="movie in movies" :key="movie.id" :movie="movie"  />
     </div>
     
 
@@ -17,7 +20,8 @@ export default{
         FilmsBox,
     },
     props: {
-        movies: Array,    // qui il movies rimanda un array
+        movies: Array,    // importiamo i dati dal padre (App.vue) - riga 9 :movies="movies"
+                         // -> nel mainContent, 'movies' rimanda un array di oggetti (ossia la lista dei film filtrati tramite input ricerca)
     }
 }
  
