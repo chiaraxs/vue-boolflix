@@ -5,7 +5,7 @@
     <!-- 5.1 nel catturare l'avento, il padre richiama la funzione 'searchMovies' che scatena l'evento e al click sul button fa la chiamata api  -->
     <!-- 5.2 App.vue (padre) dichiara i dati 'movies' che rimanderà sotto forma di props a MainContent (figlio) -->
 
-    <header-box @searchMovie="searchMovies" @searchSerie="searchSeries" />       
+    <header-box @searching="doSearch" />       
     <main-content :movies="movies" :serie="series" />    
 
   </div>
@@ -56,6 +56,10 @@ export default {
         this.series = response.data.results;    // api call -> salva nell'array vuoto 'movies' i dati ricevuti in risposta da axios
       });
     },
+    doSearch(query){
+      this.searchSeries(query);
+      this.searchMovies(query);
+    }
   }  
 }
 </script>
