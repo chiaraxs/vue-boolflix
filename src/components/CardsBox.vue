@@ -16,19 +16,18 @@
             <div class="text-light py-4 px-3" id="hidden">
 
             <div class="movies">
-                Titolo: 
-                <span class="fw-bold" v-if="type === 'movie'">{{info.title}}</span>
-                <span class="fw-bold" v-else>{{info.name}}</span>
+                
+                <!-- il type  -->
+
+                <span class="fw-bold">Titolo:</span> {{type === 'movie' ? info.title : info.name}}
                 <br>
-                Titolo originale:
-                <span class="fw-bold" v-if="type === 'movie'">{{info.original_title}}</span>
-                <span class="fw-bold" v-else>{{info.original_name}}</span>
+                <span class="fw-bold">Titolo originale:</span> {{type === 'movie' ? info.original_title: info.original_name}}
                 <br>
                 <span class="fw-bold">Overview:</span> {{info.overview}}
             </div>
 
-    
-
+                
+            
                 
             
 
@@ -49,7 +48,7 @@ export default {
         info: Object,   // importiamo i dati dal padre (Maincontent - riga 8 :movie="movie) 
                         // -> 'movie' in film.box rimanda un object ( ossia i singoli films compresi nell'array di oggetti filtrati, 
                         // inclusi title, original_title, overview e altri dettagli )
-    type: String
+    type: String        // importo type con valore String
     
     }
     
