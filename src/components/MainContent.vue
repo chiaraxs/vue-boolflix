@@ -8,7 +8,7 @@
     
     <div class="main-content d-flex justify-content-center flex-wrap">
         <cards-box v-for="movie in movies" :key="movie.id" :info="movie" :type="'movie'" />
-        <cards-box v-for="movie in movies" :key="movie.id" :info="movie" :type="'serie'" />
+        <cards-box v-for="serie in series" :key="serie.id" :info="serie" :type="'serie'" />
     </div>
 
     
