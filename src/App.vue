@@ -1,9 +1,9 @@
 <template>
   <div id="app">
     
-    <!-- 5. passo ad Header-box (il genitore in ascolto dell'evento lanciato dal figlio HeaderBox) il dato/parametro 'search' del $emit in HeaderBox. --> 
-    <!-- 5.1 nel catturare l'avento, il padre richiama la funzione 'searchMovies' che scatena l'evento e al click sul button fa la chiamata api  -->
-    <!-- 5.2 App.vue (padre) dichiara i dati 'movies' che rimanderà sotto forma di props a MainContent (figlio) -->
+    <!-- 5. passo ad Header-box (il genitore in ascolto dell'evento lanciato dal figlio HeaderBox) il dato/parametro 'searching' del $emit in HeaderBox. --> 
+    <!-- 5.1 nel catturare l'avento, il padre richiama la funzione 'doSearch' che scatena l'evento e al click sul button fa la chiamata api  -->
+    <!-- 5.2 App.vue (padre) dichiara i dati 'movies' e 'series' che rimanderà sotto forma di props a MainContent (figlio) -->
 
     <header-box @searching="doSearch" />       
     <main-content :movies="movies" :series="series" />    
@@ -26,16 +26,17 @@ export default {
   },
   data(){
     return {
-      movies: [],    // 3. creo array vuoto che verrà popolato con i dati ricevuti dalla chiamata api
-      series: [],
-      api_key: '9e033ce0eba533dff44afb04aca4ab7b',     // 3.1 dichiaro/conservo la mia api_key in una variabile
+      movies: [],    // 3. creo array vuoto che verrà popolato con i dati ricevuti dalla chiamata api x movies
+      series: [],    // 3.1 creo anche array vuoto x series
+      api_key: '9e033ce0eba533dff44afb04aca4ab7b',     // 3.2 dichiaro/conservo la mia api_key in una variabile
     }
 
   },
   methods: {
-    // 4. creo la funzione che verrà chiamata da Header-Box
-    // fisso 2 parametri: i valori (query & api_key) e le chiavi (query ossia richiesta lanciata ad axios & mia personale api key dichiarata nei data)
-    // la funzione ritorna la chiamata api in base ai parametri dichiarati
+    // 4. creo 3 funzioni:
+    // 'searchMovies' e 'searchSeries' ritornano la chiamata api in base ai parametri dichiarati ->
+    // i 2 parametri sono: i valori (query & api_key) e le chiavi (query ossia richiesta lanciata ad axios & mia personale api key dichiarata nei data)
+    // 'doSearch', invece, filtra tra series e movies nelle rispettive funzioni
     searchMovies(query){
       const params = {
         query: query,      
@@ -53,7 +54,7 @@ export default {
       }
 
       return axios.get(`https://api.themoviedb.org/3/search/tv`, { params }).then((response) => {
-        this.series = response.data.results;    // api call -> salva nell'array vuoto 'movies' i dati ricevuti in risposta da axios
+        this.series = response.data.results;    // api call -> salva nell'array vuoto 'series' i dati ricevuti in risposta da axios
       });
     },
     doSearch(query){

@@ -1,9 +1,12 @@
 <template>
     
 
-    <!-- 6. con il v-for stampo tutti i film filtrati selezionandoli con :key=id 
+    <!-- 6. con il v-for stampo tutti i movies e series filtrati selezionandoli con :key=id 
     (l'id identificativo è nell'array che axios rimanda in risposta dopo la chiamata api) -->
-    <!-- 6.1 MainContent (padre) dichiara il dato 'movie' che rimanderà sotto forma di props a FilmBox (figlio) -->
+    <!-- 6.1 MainContent (padre) dichiara i dati 'movie' e 'serie' che rimanderà sotto forma di props a CardsBox (figlio) -->
+    <!-- 6.2 assegno anche un type (a cui dò valore 'string' in cardsBox), 
+    per gestire la differenza di sintassi dell'array tra movies e series per title/name e originaltile/originalname -->
+    <!-- 6.3 rimando props a figlio (CardsBox) :info -->
 
     
     <div class="main-content d-flex justify-content-center flex-wrap">
@@ -24,8 +27,8 @@ export default{
         CardsBox,
     },
     props: {
-        movies: Array,    // importiamo i dati dal padre (App.vue) - riga 9 :movies="movies"
-                         // -> nel mainContent, 'movies' rimanda un array di oggetti (ossia la lista dei film filtrati tramite input ricerca)
+        movies: Array,    // importiamo i dati dal padre (App.vue) - riga 9 :movies="movies" e :series="series" 
+                         // -> nel mainContent, 'movies' e 'series' rimandano un array di oggetti (ossia la lista dei film/serie filtrati/e tramite input ricerca)
         series: Array,
     }
 }
