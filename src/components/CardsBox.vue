@@ -16,7 +16,7 @@
         
             <div class="text-light py-4 px-3" id="hidden">
 
-                <div class="movies">
+                <div class="movies-series">
                     
                     <!--8. il ternario mi semplifica la sintassi per differenziare type 'movie' e 'serie'-> 
                     il type è === a 'movie'? allora lancia istruzione 1 (info.title) + istruzione 2 (info.name)  
@@ -28,7 +28,7 @@
                     <br>
                     <span class="fw-bold">Overview:</span> {{info.overview}}
                     <br>
-                    <span class="fw-bold">Language:</span> {{info.original_language}}
+                    <span class="fw-bold">Language: <img :src="`/flags/${info.original_language}.png`" alt="flags" class="ms-2"></span>                      
                     <br>
                     <span class="fw-bold">Vote:</span> {{info.vote_average}}
 
@@ -96,6 +96,12 @@ export default {
             line-height: 18px;
         }
         
+    }
+
+    .movies-series{
+        img{
+            width: 30px;
+        }
     }
 }
 
