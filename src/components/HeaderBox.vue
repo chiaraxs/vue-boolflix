@@ -14,7 +14,7 @@
         <!-- 1.2 il $emit passa dal figlio (HeaderBox) al padre (App.vue) il dato e aggancia due parametri:
         il nome dell'avento (searching) che passa al padre e il valore passato dall'input tramite v-model 'keywordSearch'-->
 
-        <input v-model="keywordSearch" type="text" class="form-control me-3 border border-danger rounded" placeholder="Search your film" aria-label="Search">
+        <input v-model="keywordSearch" @keyup.enter="$emit('searching', keywordSearch)" type="text" class="form-control me-3 border border-danger rounded" placeholder="Search your film" aria-label="Search">
         <button @click="$emit('searching', keywordSearch)" type="button" class="btn text-light rounded">Search</button>
         
     </div>
