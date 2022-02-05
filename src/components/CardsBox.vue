@@ -22,18 +22,27 @@
                     il type è === a 'movie'? allora lancia istruzione 1 (info.title) + istruzione 2 (info.name)  
                     il type è === a 'movie'? allora lancia istruzione 1 (info.original_title) + istruzione 2 (info.original_name)  --> 
 
-                    <span class="fw-bold">Titolo:</span> {{type === 'movie' ? info.title : info.name}}
-                    <br>
-                    <span class="fw-bold">Titolo originale:</span> {{type === 'movie' ? info.original_title : info.original_name}}
-                    <br>
-                    <span class="fw-bold">Overview:</span> {{info.overview}}
-                    <br>
-                    <span class="fw-bold">Language: <img :src="`/flags/${info.original_language}.png`" alt="flags" class="ms-2"></span>                      
-                    <br>
-                    <span class="fw-bold">Vote:</span> {{info.vote_average}}
+                    <div><strong>Titolo:</strong> {{type === 'movie' ? info.title : info.name}} </div>
+                    <div><strong>Titolo originale:</strong> {{type === 'movie' ? info.original_title : info.original_name}}:</div>
+                    <div><strong>Overview:</strong> {{info.overview}}</div>
+                    <div><strong>Language:</strong>
+                        
 
+                        <!-- se la lingua è compresa tra quelle indicata nei data, nell'array 'languages', rimanda la bandierina corrispondente -->
+                        <!-- altrimenti, rimanda il nome della lingua senza bandiera -->
+
+                       <img 
+                        v-if="languages.includes(info.original_language)" :src="`/flags/${info.original_language}.png`" alt="flags" class="ms-2"/>
+                        <span class="text-uppercase" v-else> {{ info.original_language }}</span>
+                    
+                    </div>
+                    <div><strong>Vote</strong> {{info.vote_average}}</div>
+                    
+                   
+                      
+                   
                 </div>
-
+            
             </div>
         </div>
         
@@ -46,13 +55,18 @@
 
 
 export default {
+    data(){
+        return{
+            languages: ['en', 'it', 'fr', 'es', 'de', 'zh']    // languages ritorna un array di stringhe con le lingue di cui ho la bandierina in formato .png
+        };
+    },
+    
     props: {
         info: Object,   // importiamo i dati dal padre (Maincontent - riga 13/14) 
                         // -> 'info' rimanda un object ( ossia i singoli films compresi nell'array di oggetti filtrati, 
                         // inclusi title, original_title, overview e altri dettagli )
         
         type: String,       // importo type con valore String per differenziare movie/serie
-    
     }
     
 }
