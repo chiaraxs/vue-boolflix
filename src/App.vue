@@ -67,5 +67,6 @@ export default {
 
 <style lang="scss">
 @import './style/common.scss';
+@import url('https://fonts.googleapis.com/css2?family=The+Nautigal&display=swap');
 
 </style>

@@ -1,7 +1,8 @@
 <template>
   
   <!-- 7. qui stampo i dati dei film  -->
-    <div class="film-box  border border-dark my-3 mx-4"> 
+
+    <div class="film-box border border-dark my-2 mx-2"> 
       
         <div class="film-details">
             
@@ -9,7 +10,7 @@
             <img class="not-found" id="show" v-if="info.poster_path === null " src="https://unsplash.it/200/300?image=876" alt="posterNotAvaible">
                 
             <!-- altrimenti, se l'immagine è inclusa nel movie.poster_path -> stampala -->
-            <img id="show" v-else :src="'https://image.tmdb.org/t/p/original/' + info.poster_path">  
+            <img id="show" v-else :src="`http://image.tmdb.org/t/p/w342/${info.poster_path}`">  
         
         
         
@@ -26,6 +27,10 @@
                     <span class="fw-bold">Titolo originale:</span> {{type === 'movie' ? info.original_title : info.original_name}}
                     <br>
                     <span class="fw-bold">Overview:</span> {{info.overview}}
+                    <br>
+                    <span class="fw-bold">Language:</span> {{info.original_language}}
+                    <br>
+                    <span class="fw-bold">Vote:</span> {{info.vote_average}}
 
                 </div>
 
@@ -55,40 +60,40 @@ export default {
 
 
 <style lang="scss" scoped>
+
 .film-box{
-    width: (100% / 7);
-    background-color: black;
+    width: (100% / 6);
+
+   .film-details{
+        background-color: #d5001f;
+   }
     
         
         
     img{
+        object-fit: cover;
         width: 100%;
         height: 100%;
     }
 
     #hidden{
         display: none;
-       
     }
 
     .film-details{
         cursor: pointer;
         height: 500px;
-
-        
     }
 
     &:hover .film-details{
         
         #show{
             display: none;
-            
-            
         }
 
         #hidden{
             display: block;
-            line-height: 15px;
+            line-height: 18px;
         }
         
     }

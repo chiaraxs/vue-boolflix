@@ -3,7 +3,7 @@
     <header class="container-fluid header d-flex">
         
         <div class="title-box">
-            <h4 class="text-uppercase pt-4">boolflix</h4> 
+            <img src="../assets/logo.jpg" alt="">
         </div>
         
        
@@ -14,9 +14,9 @@
         <!-- 1.2 il $emit passa dal figlio (HeaderBox) al padre (App.vue) il dato e aggancia due parametri:
         il nome dell'avento (searching) che passa al padre e il valore passato dall'input tramite v-model 'keywordSearch'-->
 
-        <input v-model="keywordSearch" type="text" class="form-control me-3" placeholder="Search your film" aria-label="Search">
-        <button @click="$emit('searching', keywordSearch)" type="button" class="btn btn-light">Search</button>
-
+        <input v-model="keywordSearch" type="text" class="form-control me-3 border border-danger rounded" placeholder="Search your film" aria-label="Search">
+        <button @click="$emit('searching', keywordSearch)" type="button" class="btn text-light rounded">Search</button>
+        
     </div>
     </header>
 
@@ -44,9 +44,11 @@ export default {
 
     .title-box{
         width: 80%;
+        margin-left: -90px;
 
-        h4{
-        color: red;
+        img{
+            width: 350px;
+            padding: 20px;
         }
 
     }
@@ -54,6 +56,10 @@ export default {
     .input-group{
     width: 400px;
     height: 50px;
+
+    button{
+        background-color: #d5001f;
+    }
 }
 
     
