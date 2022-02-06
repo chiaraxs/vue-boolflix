@@ -80,6 +80,12 @@ export default {
 
    .film-details{
         background-color: #d5001f;
+        
+        &:hover{
+            filter: alpha(opacity=50);
+            opacity: 0.9;
+        }            
+        
    }
     
         
@@ -96,7 +102,7 @@ export default {
 
     .film-details{
         cursor: pointer;
-        height: 400px;
+        height: 500px;
         overflow-y: auto;
     }
 
