@@ -64,9 +64,11 @@ export default {
 
 
 <style lang="scss" scoped>
+@import '@/style/variables.scss';
+
 .header{
     height: 80px;
-    background: black;
+    background: $bg-color-header;
 
     .title-box{
         width: 200px;
@@ -88,7 +90,7 @@ export default {
         
         a{
             text-decoration: none;
-            color: white
+            color: $secondary-color;
         }           
     }
     .input-group{
@@ -96,7 +98,7 @@ export default {
         height: 50px;
 
     button{
-        background-color: #d5001f;
+        background-color: $primary-color;
     }
 }
 

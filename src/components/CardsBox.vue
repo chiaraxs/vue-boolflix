@@ -74,12 +74,13 @@ export default {
 
 
 <style lang="scss" scoped>
+@import '@/style/variables.scss';
 
 .film-box{
     width: (100% / 6);
 
    .film-details{
-        background-color: #d5001f;
+        background-color: $primary-color;
         
         &:hover{
             filter: alpha(opacity=50);

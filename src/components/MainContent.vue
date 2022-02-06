@@ -40,13 +40,14 @@ export default{
 
 
 <style lang="scss" scoped>
+@import '@/style/variables.scss';
 
 .main-box{
     height: 100vh;
-    background-color: #141414;
+    background-color: $bg-color-main;
 
     .main-content{
-        background-color: #141414;
+        background-color: $bg-color-main;
         height: auto;
     }   
 }
