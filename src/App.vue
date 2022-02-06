@@ -61,6 +61,7 @@ export default {
       this.searchSeries(query);
       this.searchMovies(query);
     }
+    
   }  
 }
 </script>

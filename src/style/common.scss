@@ -8,7 +8,13 @@ body{
    font-family: 'The Nautigal', cursive;
 }
 
+.fa-star{
+    color: #FFD700;
+}
 
 
 // bootstrap import
 @import '~bootstrap/scss/bootstrap.scss';
+
+// fontawesome import(DA RIVEDERE?)
+@import url('https://pro.fontawesome.com/releases/v5.10.0/css/all.css');

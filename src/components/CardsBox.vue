@@ -36,7 +36,7 @@
                         <span class="text-uppercase" v-else> {{ info.original_language }}</span>
                     
                     </div>
-                    <div><strong>Vote:</strong> {{info.vote_average}}</div>
+                    <div><strong>Vote:</strong> {{info.vote_average}} <i class="fas fa-star"></i></div>
                     
                    
                       
