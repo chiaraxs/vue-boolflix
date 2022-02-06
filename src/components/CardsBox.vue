@@ -2,7 +2,7 @@
   
   <!-- 7. qui stampo i dati dei film  -->
 
-    <div class="film-box border border-dark my-2 mx-2"> 
+    <div class="film-box border border-dark mt-5 mx-2"> 
       
         <div class="film-details">
             
@@ -36,7 +36,7 @@
                         <span class="text-uppercase" v-else> {{ info.original_language }}</span>
                     
                     </div>
-                    <div><strong>Vote</strong> {{info.vote_average}}</div>
+                    <div><strong>Vote:</strong> {{info.vote_average}}</div>
                     
                    
                       
@@ -85,7 +85,7 @@ export default {
         
         
     img{
-        object-fit: cover;
+        object-fit: fill;
         width: 100%;
         height: 100%;
     }
@@ -96,7 +96,8 @@ export default {
 
     .film-details{
         cursor: pointer;
-        height: 500px;
+        height: 400px;
+        overflow-y: auto;
     }
 
     &:hover .film-details{

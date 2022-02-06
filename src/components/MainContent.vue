@@ -8,8 +8,8 @@
     per gestire la differenza di sintassi dell'array tra movies e series per title/name e originaltile/originalname -->
     <!-- 6.3 rimando props a figlio (CardsBox) :info -->
 
-    <div class="container-fluid main-box">
-        <div class="container-fluid main-content d-flex justify-content-center flex-wrap">
+    <div class="main-box">
+        <div class="main-content d-flex justify-content-center flex-wrap">
             <cards-box v-for="movie in movies" :key="movie.id" :info="movie" :type="'movie'" />
             <cards-box v-for="serie in series" :key="serie.id" :info="serie" :type="'serie'" />
         </div>
