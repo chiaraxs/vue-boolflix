@@ -1,9 +1,11 @@
 <template>
     
+    <!-- STARS -->
     <div>
         <strong>Voto:</strong> 
         <i v-for="star in starsAverageCalc" :key="star" class="fas fa-star ms-1"></i>
     </div>
+    <!-- / STARS -->
 
 </template>
 
@@ -18,7 +20,6 @@ export default {
             return Math.round(this.vote / 2);     // funzione che divide il punteggio totale / 2 -> il punteggio così sarà sulla base di max 5 stelline 
         }
     }
-    
 }
 </script>
 
@@ -26,5 +27,9 @@ export default {
 
 <style lang="scss" scoped>
 @import '@/style/variables.scss';
+
+.fa-star{
+    color: #FFD700;
+}
 
 </style>

@@ -2,7 +2,7 @@
   
   <!-- 7. qui stampo i dati dei film  -->
 
-    <div class="film-box border border-dark mt-5"> 
+    <div class="film-box border border-dark mt-5 mx-1"> 
       
         <div class="film-details">
             
@@ -16,6 +16,7 @@
         
             <div class="text-light py-4 px-3" id="hidden">
 
+                <!-- DETTAGLI MOVIES-SERIES -->
                 <div class="movies-series">
                     
                     <!--8. il ternario mi semplifica la sintassi per differenziare type 'movie' e 'serie'-> 
@@ -25,32 +26,30 @@
                     <div><strong>Titolo:</strong> {{type === 'movie' ? info.title : info.name}} </div>
                     <div><strong>Titolo originale:</strong> {{type === 'movie' ? info.original_title : info.original_name}}:</div>
                     <div><strong>Overview:</strong> {{info.overview}}</div>
+                    
+                    <!-- LANGUAGES -->
                     <div><strong>Lingue:</strong>
                         
 
                         <!-- se la lingua è compresa tra quelle indicata nei data, nell'array 'languages', rimanda la bandierina corrispondente -->
                         <!-- altrimenti, rimanda il nome della lingua senza bandiera -->
 
+                        <!-- FLAGS -->
                        <img 
                         v-if="languages.includes(info.original_language)" :src="`/flags/${info.original_language}.png`" alt="flags" class="ms-2"/>
                         <span class="text-uppercase" v-else> {{ info.original_language }}</span>
-                    
+                        <!-- /FLAGS -->
+
                     </div>
+                    <!-- / LANGUAGES -->
                     
-                    
-                        
+                    <!-- STARS - StarsAverage component -->
                     <stars-average :vote="info.vote_average" /> 
-                    
-                   
-                   
-                   
-                    
-                    
-                   
-                      
+                    <!-- / STARS - StarsAverage component -->
                    
                 </div>
-            
+                <!-- / DETTAGLI MOVIES-SERIES -->
+
             </div>
         </div>
         

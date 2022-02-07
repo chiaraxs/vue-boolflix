@@ -1,14 +1,23 @@
 <template>
+  
+  <!-- #APP -->
   <div id="app">
     
     <!-- 5. passo ad Header-box (il genitore in ascolto dell'evento lanciato dal figlio HeaderBox) il dato/parametro 'searching' del $emit in HeaderBox. --> 
     <!-- 5.1 nel catturare l'avento, il padre richiama la funzione 'doSearch' che scatena l'evento e al click sul button fa la chiamata api  -->
     <!-- 5.2 App.vue (padre) dichiara i dati 'movies' e 'series' che rimanderà sotto forma di props a MainContent (figlio) -->
 
-    <header-box @searching="doSearch" />       
+    <!-- HEADER-BOX -->
+    <header-box @searching="doSearch" />      
+    <!--/HEADER-BOX  -->
+
+     <!-- MAIN-CONTENT -->
     <main-content :movies="movies" :series="series" :languages="languages" />    
+    <!-- / MAIN-CONTENT -->
 
   </div>
+  <!-- / #APP-->
+
 </template>
 
 <script>
@@ -28,7 +37,7 @@ export default {
     return {
       movies: [],    // 3. creo array vuoto che verrà popolato con i dati ricevuti dalla chiamata api x movies
       series: [],    // 3.1 creo anche array vuoto x series
-      languages: ['en', 'it', 'fr', 'es', 'de', 'zh'],
+      languages: ['en', 'it', 'fr', 'es', 'de', 'zh'],    // array di lingue con bandierina
       api_key: '9e033ce0eba533dff44afb04aca4ab7b',     // 3.2 dichiaro/conservo la mia api_key in una variabile
     }
 
