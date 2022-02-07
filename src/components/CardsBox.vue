@@ -36,10 +36,8 @@
                         <span class="text-uppercase" v-else> {{ info.original_language }}</span>
                     
                     </div>
-                    <div><strong>Voto:</strong> 
-                        <i v-for="star in starsAverage" :key="star" class="fas fa-star ms-1"></i>
-                    </div>
                     
+                    <stars-average :star="info.vote_average" /> 
                    
                       
                    
@@ -54,23 +52,22 @@
 </template>
 
 <script>
+import StarsAverage from './starsAverage.vue';
 
 
 export default {
+    components: {
+       StarsAverage,
+    },
     props: {
-        info: Object,   // importiamo i dati dal padre (Maincontent - riga 13/14) 
+        info: Object,
+          // importiamo i dati dal padre (Maincontent - riga 13/14) 
                         // -> 'info' rimanda un object ( ossia i singoli films compresi nell'array di oggetti filtrati, 
                         // inclusi title, original_title, overview e altri dettagli )
         
         type: String,       // importo type con valore String per differenziare movie/serie
         languages: Array,
     },
-    computed: {
-        starsAverage (){
-            return Math.round(this.info.vote_average / 2);     // funzione che divide il punteggio totale / 2 -> il punteggio così sarà sulla base di max 5 stelline 
-        }
-    }
-    
 }
 </script>
 
