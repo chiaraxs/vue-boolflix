@@ -9,9 +9,31 @@
     <!-- 6.3 rimando props a figlio (CardsBox) :info -->
 
     <div class="main-box">
-        <div class="main-content d-flex justify-content-center flex-wrap">
-            <cards-box  v-for="movie in movies" :key="movie.id" :info="movie" :type="'movie'" :languages="languages" />
-            <cards-box v-for="serie in series" :key="serie.id" :info="serie" :type="'serie'" :languages="languages"  />
+        <div class="main-content ">
+
+            <!-- FILM -->
+            <div>
+                <h4 class="text-light text-center pt-5"> Film:</h4>
+            </div>
+            
+            <div class="d-flex justify-content-center flex-wrap">
+                <cards-box  v-for="movie in movies" :key="movie.id" :info="movie" :type="'movie'" :languages="languages" />
+            </div>
+            <!-- / FILM -->
+
+            <!-- SERIE TV -->
+            <div>
+                <h4 class="text-light text-center pt-5">Serie Tv:</h4>
+            </div>
+            
+            <div class="d-flex justify-content-center flex-wrap">
+                <cards-box v-for="serie in series" :key="serie.id" :info="serie" :type="'serie'" :languages="languages"  />
+            </div>
+            <!-- / SERIE TV -->
+            
+            
+
+            
         </div>
     </div>
     
