@@ -33,14 +33,15 @@ export default {
 
   },
   mounted(){
-    this.homeTrendingAll();     // richiamo la funzione per popolare la home con nuova chiamata api per trending movies/series
+    this.homeTrendingMovie();     // richiamo la funzione per popolare la home con nuova chiamata api per trending movies 
+    this.homeTrendingSerie();     // stessa cosa, ma per series
   },
   methods: {
-    // 4. creo 4 funzioni:
+    // 4. creo 5 funzioni:
     // 'searchMovies' e 'searchSeries' ritornano la chiamata api in base ai parametri dichiarati ->
     // i 2 parametri sono: i valori (query & api_key) e le chiavi (query ossia richiesta lanciata ad axios & mia personale api key dichiarata nei data)
     // 'doSearch', invece, filtra tra series e movies nelle rispettive funzioni
-    // 'homeTrendingAll' ritorna chiamata api in home con trending all (sia series che movies) 
+    // 'homeTrendingMovie' e 'homeTrendingSerie' ritornano chiamata api in home con trending movie e serie
     searchMovies(query){
       const params = {
         query: query,      
@@ -65,17 +66,26 @@ export default {
       this.searchSeries(query);
       this.searchMovies(query);
     },
-    homeTrendingAll(query){
+    homeTrendingMovie(query){
       const params = {
         query: query,
         api_key: this.api_key,
       }
       
-      return axios.get(`https://api.themoviedb.org/3/trending/all/day`, { params }).then((response) => {
+      return axios.get(`https://api.themoviedb.org/3/trending/movie/day`, { params }).then((response) => {
         this.movies = response.data.results;       
       });
     },
-    
+    homeTrendingSerie(query){
+      const params = {
+        query: query,
+        api_key: this.api_key,
+      }
+      
+      return axios.get(`https://api.themoviedb.org/3/trending/tv/day`, { params }).then((response) => {
+        this.series = response.data.results;       
+      });
+    },
   }  
 }
 </script>

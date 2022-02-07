@@ -2,7 +2,7 @@
   
   <!-- 7. qui stampo i dati dei film  -->
 
-    <div class="film-box border border-dark mt-5 mx-2"> 
+    <div class="film-box border border-dark mt-5"> 
       
         <div class="film-details">
             

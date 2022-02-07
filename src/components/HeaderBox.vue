@@ -72,7 +72,7 @@ export default {
 
     .logo-box{
         width: 200px;
-        margin-left: -70px;
+        margin-left: -150px;
 
         img{
             padding: 20px;
