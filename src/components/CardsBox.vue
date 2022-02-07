@@ -71,7 +71,7 @@ export default {
     },
     computed: {
         starsAverage (){
-            return Math.round(this.info.vote_average / 2);
+            return Math.round(this.info.vote_average / 2);     // funzione che divide il punteggio totale / 2 -> il punteggio così sarà sulla base di max 5 stelline 
         }
     }
     
