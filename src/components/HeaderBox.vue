@@ -40,8 +40,8 @@
             <!-- 1.2 il $emit passa dal figlio (HeaderBox) al padre (App.vue) il dato e aggancia due parametri:
             il nome dell'avento (searching) che passa al padre e il valore passato dall'input tramite v-model 'keywordSearch'-->
 
-            <input v-model="keywordSearch" @keyup.enter="$emit('searching', keywordSearch)" type="text" class="form-control me-3 border border-danger rounded" placeholder="Cerca il tuo film" aria-label="Search">
-            <button @click="$emit('searching', keywordSearch)" type="button" class="btn text-light rounded">Cerca</button>
+            <input v-model="keywordSearch" @keyup.enter="searchKeyword" type="text" class="form-control me-3 border border-danger rounded" placeholder="Cerca il tuo film" aria-label="Search">
+            <button @click="searchKeyword" type="button" class="btn text-light rounded">Cerca</button>
     
         </div>
     </header>
@@ -57,6 +57,11 @@ export default {
         return{
             keywordSearch: '',      // 2. salvo il valore dell'input in una variabile vuota -> sarà dinamica in base al testo digitato nell'input
                                     //  e conseguente alla ricerca effettuata dall'utente
+        }
+    },
+    methods: {
+        searchKeyword(){
+            this.$emit('searching', this.keywordSearch)         // searchKeyword farà l'emit. Poi richiamerò il metodo nell'input e nel button
         }
     }
 }

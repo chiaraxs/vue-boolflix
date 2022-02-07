@@ -37,7 +37,7 @@
                     
                     </div>
                     <div><strong>Voto:</strong> 
-                        <i v-for="(star, index) in Math.round(info.vote_average / 2)" :key="index" class="fas fa-star ms-1"></i>
+                        <i v-for="star in starsAverage" :key="star" class="fas fa-star ms-1"></i>
                     </div>
                     
                    
@@ -62,13 +62,17 @@ export default {
             languages: ['en', 'it', 'fr', 'es', 'de', 'zh']    // languages ritorna un array di stringhe con le lingue di cui ho la bandierina in formato .png
         };
     },
-    
     props: {
         info: Object,   // importiamo i dati dal padre (Maincontent - riga 13/14) 
                         // -> 'info' rimanda un object ( ossia i singoli films compresi nell'array di oggetti filtrati, 
                         // inclusi title, original_title, overview e altri dettagli )
         
         type: String,       // importo type con valore String per differenziare movie/serie
+    },
+    computed: {
+        starsAverage (){
+            return Math.round(this.info.vote_average / 2);
+        }
     }
     
 }
