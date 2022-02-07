@@ -37,7 +37,15 @@
                     
                     </div>
                     
-                    <stars-average :star="info.vote_average" /> 
+                    
+                        
+                    <stars-average :vote="info.vote_average" /> 
+                    
+                   
+                   
+                   
+                    
+                    
                    
                       
                    
@@ -52,7 +60,7 @@
 </template>
 
 <script>
-import StarsAverage from './starsAverage.vue';
+import StarsAverage from "./StarsAverage";
 
 
 export default {
