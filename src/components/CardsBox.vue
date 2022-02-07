@@ -25,7 +25,7 @@
                     <div><strong>Titolo:</strong> {{type === 'movie' ? info.title : info.name}} </div>
                     <div><strong>Titolo originale:</strong> {{type === 'movie' ? info.original_title : info.original_name}}:</div>
                     <div><strong>Overview:</strong> {{info.overview}}</div>
-                    <div><strong>Language:</strong>
+                    <div><strong>Lingue:</strong>
                         
 
                         <!-- se la lingua è compresa tra quelle indicata nei data, nell'array 'languages', rimanda la bandierina corrispondente -->
@@ -36,7 +36,9 @@
                         <span class="text-uppercase" v-else> {{ info.original_language }}</span>
                     
                     </div>
-                    <div><strong>Vote:</strong> {{info.vote_average}} <i class="fas fa-star"></i></div>
+                    <div><strong>Voto:</strong> 
+                        <i v-for="(star, index) in Math.round(info.vote_average / 2)" :key="index" class="fas fa-star ms-1"></i>
+                    </div>
                     
                    
                       
