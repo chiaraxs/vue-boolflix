@@ -77,7 +77,7 @@ export default {
 @import '@/style/variables.scss';
 
 .film-box{
-    width: (100% / 6);
+    width: calc(100% / 6);
 
    .film-details{
         background-color: $primary-color;
