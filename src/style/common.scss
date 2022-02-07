@@ -1,3 +1,7 @@
+// bootstrap import
+@import '~bootstrap/scss/bootstrap.scss';
+
+
 *{
     padding: 0;
     margin: 0;
@@ -5,19 +9,15 @@
 }
 
 body{
-   font-family: 'The Nautigal', cursive;
+   font-family: 'Zen Kaku Gothic Antique', sans-serif;
 }
 
 .fa-star{
     color: #FFD700;
 }
 
-
-// bootstrap import
-@import '~bootstrap/scss/bootstrap.scss';
-
 // fontawesome import
 @import '~@fortawesome/fontawesome-free/css/all.min.css';
 
 // google font import
-@import url('https://fonts.googleapis.com/css2?family=The+Nautigal&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+Antique&display=swap');

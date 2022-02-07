@@ -57,17 +57,13 @@
 
 
 export default {
-    data(){
-        return{
-            languages: ['en', 'it', 'fr', 'es', 'de', 'zh']    // languages ritorna un array di stringhe con le lingue di cui ho la bandierina in formato .png
-        };
-    },
     props: {
         info: Object,   // importiamo i dati dal padre (Maincontent - riga 13/14) 
                         // -> 'info' rimanda un object ( ossia i singoli films compresi nell'array di oggetti filtrati, 
                         // inclusi title, original_title, overview e altri dettagli )
         
         type: String,       // importo type con valore String per differenziare movie/serie
+        languages: Array,
     },
     computed: {
         starsAverage (){

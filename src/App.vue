@@ -6,7 +6,7 @@
     <!-- 5.2 App.vue (padre) dichiara i dati 'movies' e 'series' che rimanderà sotto forma di props a MainContent (figlio) -->
 
     <header-box @searching="doSearch" />       
-    <main-content :movies="movies" :series="series" />    
+    <main-content :movies="movies" :series="series" :languages="languages" />    
 
   </div>
 </template>
@@ -28,6 +28,7 @@ export default {
     return {
       movies: [],    // 3. creo array vuoto che verrà popolato con i dati ricevuti dalla chiamata api x movies
       series: [],    // 3.1 creo anche array vuoto x series
+      languages: ['en', 'it', 'fr', 'es', 'de', 'zh'],
       api_key: '9e033ce0eba533dff44afb04aca4ab7b',     // 3.2 dichiaro/conservo la mia api_key in una variabile
     }
 

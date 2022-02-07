@@ -10,8 +10,8 @@
 
     <div class="main-box">
         <div class="main-content d-flex justify-content-center flex-wrap">
-            <cards-box v-for="movie in movies" :key="movie.id" :info="movie" :type="'movie'" />
-            <cards-box v-for="serie in series" :key="serie.id" :info="serie" :type="'serie'" />
+            <cards-box  v-for="movie in movies" :key="movie.id" :info="movie" :type="'movie'" :languages="languages" />
+            <cards-box v-for="serie in series" :key="serie.id" :info="serie" :type="'serie'" :languages="languages"  />
         </div>
     </div>
     
@@ -33,6 +33,7 @@ export default{
         movies: Array,    // importiamo i dati dal padre (App.vue) - riga 9 :movies="movies" e :series="series" 
                          // -> nel mainContent, 'movies' e 'series' rimandano un array di oggetti (ossia la lista dei film/serie filtrati/e tramite input ricerca)
         series: Array,
+        languages: Array,
     }
 }
  
